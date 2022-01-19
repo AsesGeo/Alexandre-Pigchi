@@ -9,7 +9,7 @@
     
           <!--Enlace al plugin Legend Master-->
           <link rel="stylesheet" href="https://ptma.github.io/Leaflet.Legend/src/leaflet.legend.css">
-          <script src="https://ptma.github.io/Leaflet.Legend/src/leaflet.legend.js"></script>
+           <script src="https://ptma.github.io/Leaflet.Legend/src/leaflet.legend.js"></script>
           
 
 
@@ -95,12 +95,18 @@
             
         
         //CARGAR GEOJSON
-        $.when($.getJSON("alexandre_comanche.geojson"), $.getJSON("limite_estatal.geojson"),$.getJSON("limite_muni.geojson"), $.getJSON("limte_nac.geojson"), $.getJSON("Comanche.geojson") ). done( function(data1, data2, data3, data4, data5) {
+           var arbolesURL = "https://asesgeo.github.io/Alexandre-Pigchi/alexandre_comanche.geojson"
+           var proyectoURL = "https://asesgeo.github.io/Capasbase/Comanche.geojson"
+           var municipioURL = "https://asesgeo.github.io/Capasbase/limite_muni.geojson"
+           var estadoURL = "https://asesgeo.github.io/Capasbase/limite_estatal.geojson"
+           var paisURL = "https://asesgeo.github.io/Capasbase/limte_nac.geojson"
+           
+        $.when($.getJSON(arbolesURL), $.getJSON(estadoURL),$.getJSON(municipioURL), $.getJSON(paisURL), $.getJSON(proyectoURL) ). done( function(data1, data2, data3, data4, data5) {
    
 
           
             var geojson1= new L.GeoJSON(data1,{pointToLayer: function(feature, latlng) {
-                    var arbol= 'tree.png'
+                    var arbol= 'https://asesgeo.github.io/Capasbase/tree.png'
                                         var mapicon= L.icon({
                                             iconUrl: arbol,
                                             iconSize:[15,15],
@@ -227,7 +233,7 @@
                               {
                                 label: "Assigned trees",
                                 type: "image",
-                                url:"tree.png"
+                                url:"https://asesgeo.github.io/Capasbase/tree.png"
                               },{
                                 label: 'Comanche',
                                         type: "rectangle",
