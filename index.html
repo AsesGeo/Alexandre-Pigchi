@@ -30,12 +30,7 @@
               width: 1000px; 
              }
              
-             .legend {
-                padding: 6px 40px;
-                background-color: rgba(255,255,255,0.8);
-                box-shadow: 0 0 15px rgba(0,0,0,0.2);
-                border-radius: 5px;
-            }
+            
 
             .title {
             width: 120px;
@@ -220,52 +215,13 @@
                   };
               title.addTo(map);
 
-          //LEYENDA DEL MAPA
-                              var legend = L.control.legend({
-                              position: "bottomright",
-                              collapsed: false,
-                              symbolWidth:18,
-                              symbolHeight:10,
-                              opacity: 0.75,
-                              column: 1,
-                              title: 'Legend',
-                              legends: [
-                              {
-                                label: "Assigned trees",
-                                type: "image",
-                                url:"https://asesgeo.github.io/Capasbase/tree.png"
-                              },{
-                                label: 'Comanche',
-                                        type: "rectangle",
-                                        fillColor:"transparent",
-                                        color: "#FF0000",
-                                        dashArray:[5,5],
-                                        weight: 2,
-                              },{
-                                label: 'Municipality of Chihuahua',
-                                        type: "rectangle",
-                                        color: "#0040FF",
-                                        fillColor:"transparent",
-                                        dashArray:[5,5],
-                                        weight: 2,
-                                       
-                              },{
-                                label: 'Chihuahua state',
-                                        type: "rectangle",
-                                        fillColor:"transparent",
-                                        color: "#8000FF",
-                                        dashArray:[5,5],
-                                        weight: 2,
-                              },{
-                                label: 'Mexico',
-                                        type: "rectangle",
-                                        fillColor:"transparent",
-                                        color: "#A4A4A4",
-                                        dashArray:[5,5],
-                                        weight: 2,
-                              },
-                              ]
-                            }).addTo(map);
+              var north = L.control({position: "bottomright"});
+            north.onAdd = function(map) {
+                var div = L.DomUtil.create("div", "info legend");
+                div.innerHTML = '<img src="https://asesgeo.github.io/Alexandre-Pigchi/Leyenda2.png" width="200" height="150">';
+                return div;
+            }
+            north.addTo(map);
         </script>
      </body>
 </html>
